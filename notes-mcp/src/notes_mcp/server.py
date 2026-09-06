@@ -21,11 +21,12 @@ def save_notes() -> None:
 
 mcp = MCPServer(name="notes-server", version="1.0.0", description="Notes MCP Server")
 
-# Create tools
+# Create tools (for LLM to ask CLIENT to call)
 
 @mcp.tool()
 def search_notes(query: str) -> dict:
-    return {title: note for title, note in notes.items() if query in title}
+    query_lower = query.lower()
+    return {title: note for title, note in notes.items() if query_lower in title.lower()}
 
 
 @mcp.tool()
