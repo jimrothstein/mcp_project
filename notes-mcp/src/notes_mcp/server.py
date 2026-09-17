@@ -1,3 +1,7 @@
+# REF:  
+# TO RUN: uv run mcp dev server.py
+# opencode already configured, ask it find a "note"
+
 from mcp.server.mcpserver import MCPServer
 import json
 import httpx as httpx

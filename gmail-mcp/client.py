@@ -51,6 +51,21 @@ def _validate_metadata_issuer(metadata, expected_issuer):
 
 _oauth2.validate_metadata_issuer = _validate_metadata_issuer
 
+# Google's authorization server advertises `authorization_response_iss_parameter_supported`
+# but omits `iss` in the redirect back to us. The SDK's strict check rejects a missing
+# `iss` in that case, aborting the flow. Tolerate the omission while still validating
+# `iss` when it is present.
+_orig_validate_authorization_response_iss = _oauth2.validate_authorization_response_iss
+
+
+def _validate_authorization_response_iss(iss, oauth_metadata):
+    if iss is None:
+        return
+    _orig_validate_authorization_response_iss(iss, oauth_metadata)
+
+
+_oauth2.validate_authorization_response_iss = _validate_authorization_response_iss
+
 HERE = Path(__file__).parent
 CREDENTIALS_FILE = HERE / "credentials.json"
 TOKEN_FILE = HERE / "mcp_tokens.json"

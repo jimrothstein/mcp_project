@@ -1,0 +1,3 @@
+- To run: uv run mcp dev server.py 
+- server.py
+- creates one mcp tool, one resource, one prompt ("add")
