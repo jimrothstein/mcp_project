@@ -19,6 +19,7 @@ Usage:
 """
 
 import argparse
+import datetime
 import json
 import os
 import sys
@@ -78,7 +79,13 @@ def cmd_list(args):
         print(json.dumps(posts, indent=2))
         return
     for i, p in enumerate(posts, 1):
-        print(f"{i:4}. [{p['subreddit']}] {p['title']}\n      {p['permalink']}")
+        permalink = "https://www.reddit.com" + p["permalink"] if p["permalink"].startswith("/") else p["permalink"]
+        when = datetime.datetime.fromtimestamp(p["created_utc"]).strftime("%Y-%m-%d") if p["created_utc"] else "?"
+        print(f"{i:4}. [{p['subreddit']}] {p['title']}")
+        print(f"      saved {when}  (id {p['id']})")
+        print(f"      {permalink}")
+        if p["url"]:
+            print(f"      content: {p['url']}")
     print(f"\n{len(posts)} saved post(s)")
 
 
