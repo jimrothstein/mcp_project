@@ -42,8 +42,16 @@ def feed_url():
     return url.replace(".rss?", ".json?")
 
 
+def request_headers():
+    headers = {"User-Agent": "saved.py/0.1", "Accept": "application/json"}
+    session = os.environ.get("REDDIT_SESSION_COOKIE")
+    if session:
+        headers["Cookie"] = "reddit_session=%s" % session
+    return headers
+
+
 def fetch_posts():
-    req = urllib.request.Request(feed_url(), headers={"User-Agent": "saved.py/0.1"})
+    req = urllib.request.Request(feed_url(), headers=request_headers())
     with urllib.request.urlopen(req, timeout=30) as resp:
         payload = json.load(resp)
     children = payload.get("data", {}).get("children", [])
