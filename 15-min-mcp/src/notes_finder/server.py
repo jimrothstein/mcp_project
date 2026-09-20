@@ -3,7 +3,7 @@ from pathlib import Path
 
 from fastmcp import FastMCP
 
-NOTES_DIR = Path(os.environ.get("NOTES_DIR", Path.home() / "notes"))
+NOTES_DIR = Path(os.environ.get("NOTES_DIR", Path.home() / "code" / "docs" / "tech_notes"))
 
 mcp = FastMCP("15-min-mcp", version="0.1.0")
 

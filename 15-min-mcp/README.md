@@ -10,7 +10,7 @@ Built with [FastMCP](https://github.com/jlowin/fastmcp) (Python).
 
 ## Notes location
 
-Notes are read from `~/notes/` by default. Override with the `NOTES_DIR` environment variable:
+Notes are read from `~/code/docs/tech_notes/` by default. Override with the `NOTES_DIR` environment variable:
 
 ```bash
 NOTES_DIR=/path/to/notes 15-min-mcp
