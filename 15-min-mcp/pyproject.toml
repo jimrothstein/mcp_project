@@ -1,16 +1,18 @@
 [project]
-name = "15-min-mcp"
+name = "notes-finder"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP server that searches local markdown notes (command name: 15-min-mcp)"
 readme = "README.md"
 authors = [
     { name = "jimrothstein", email = "jimrothstein@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "fastmcp>=2.0",
+]
 
 [project.scripts]
-15-min-mcp = "15_min_mcp:main"
+15-min-mcp = "notes_finder:main"
 
 [build-system]
 requires = ["uv_build>=0.10.5,<0.11.0"]

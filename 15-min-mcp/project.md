@@ -1,0 +1,1 @@
+/home/jim/dotfiles/opencode/projects/15-min-mcp.md
