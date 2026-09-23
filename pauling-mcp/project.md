@@ -1,1 +1,1 @@
-/home/jim/dotfiles/opencode/projects/pauling-ai.md
+/home/jim/dotfiles/opencode/projects/pauling-mcp.md
