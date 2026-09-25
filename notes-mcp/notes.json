@@ -1,0 +1,5 @@
+{
+    "welcome": "This is a note in the notes-mcp demo server. Use get_all_notes to see everything.",
+    "mcp": "Model Context Protocol: a standard for connecting LLM apps to tools, resources, and prompts.",
+    "run-command": "uv run --directory ~/code/mcp_project/notes-mcp python server.py"
+}
