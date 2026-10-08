@@ -1,5 +1,5 @@
 # REF:  
-# TO RUN: uv run mcp dev server.py
+# TO RUN: uv run mcp dev src/notes_mcp/server.py
 # opencode already configured, ask it find a "note"
 
 from mcp.server.mcpserver import MCPServer
@@ -56,7 +56,7 @@ def delete_note(note: str) -> str:
 def get_all_notes() -> dict:
     return notes
 
-
+# tool that uses regular python function to make api call
 @mcp.tool()
 def get_weather(location: str) -> dict:
     url = f"https://geocoding-api.open-meteo.com/v1/search?name={location}"
@@ -73,7 +73,7 @@ def get_coordinates(url: str) -> tuple[float, float]:
     return data["results"][0]["longitude"], data["results"][0]["latitude"]
 
 
-# Resource returns all notes as string
+# Resource -  returns all notes as string
 @mcp.resource("notes://all")
 def notes_resource() -> str:
     return "\n".join([f"{title}: {note}" for title, note in notes.items()])
