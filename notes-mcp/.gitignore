@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Project memory symlink
+project.md
+
+# Global ~/.gitignore ignores *.json; notes.json is the server's data file
+!notes.json
+!uv.lock

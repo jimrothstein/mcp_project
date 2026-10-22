@@ -1,0 +1,1 @@
+/home/jim/dotfiles/opencode/projects/context7-mcp.md
